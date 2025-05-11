@@ -3,7 +3,7 @@ import uuid
 from django.db import models
 
 # Create your models here.
-class TodoList(models.Model):
+class Tasks(models.Model):
     uid = models.UUIDField(primary_key=True, editable=False, default= uuid.uuid4)
     title = models.CharField(max_length=150)
     description = models.CharField(max_length=300)

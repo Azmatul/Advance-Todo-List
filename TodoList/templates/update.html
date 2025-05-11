@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% block start %}
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+      <div class="p-5 shadow rounded bg-light" style="max-width: 600px; width: 100%;">
+        <h1 class="text-center mb-4 text-success">Update Task</h1>
+
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">📌</span>
+            <input type="text" class="form-control" name="title" value= "{{ task.title }}" aria-label="title" aria-describedby="basic-addon1" required>
+          </div>
+
+          <div class="mb-3">
+            <textarea class="form-control" rows="4" name="description" aria-label="With textarea">{{ task.description }}</textarea>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button class="btn btn-success" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+{% endblock%}

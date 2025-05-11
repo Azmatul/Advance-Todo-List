@@ -16,11 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import uuid
+
 
 from TodoList.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path("", home, name='home')
+    path("", tasks_list, name='home'),  # map home to task list view
+    path("add_list/", add_list, name='add_list'),
+    path("achieve/<uuid:task_id>/", mark_achieved, name="mark_achieved"),
+    path("unachieve/<uuid:task_id>/", unmark_achieved, name="unmark_achieved"),
+    path("update/<uuid:task_id>/", update, name="update"),
+    path("delete/<uuid:task_id>/", delete, name="delete"),
 ]

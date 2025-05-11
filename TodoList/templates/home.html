@@ -1,8 +1,80 @@
 {% extends "base.html" %}
 
 {% block start %}
-      <div class="container-fluid" style="background-color: green;">
-        <h1>This called Sazzad </h1>
+<div class="container mt-4">
+  <form method="get" class="d-flex align-items-center mb-3">
+    <label for="filter" class="me-2 fw-bold">Filter:</label>
+    <select name="filter" id="filter" class="form-select me-2" style="width: 200px;" onchange="this.form.submit()">
+      <option value="all" {% if filter_option == "all" %}selected{% endif %}>All</option>
+      <option value="achieve" {% if filter_option == "achieve" %}selected{% endif %}>Achieve</option>
+      <option value="active" {% if filter_option == "active" %}selected{% endif %}>Active</option>
+    </select>
+  </form>
+
+  <div class="row">
+    {% for task in tasks %}
+    <div class="col-md-4 mb-3">
+      <div class="card text-center">
+        <div class="card-header {% if task.is_achieve %}bg-success{% else %}bg-primary{% endif %} text-white">
+          {% if task.is_achieve %}
+            Achieved
+          {% else %}
+            🟢Active
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <h1 class="card-title">{{ task.title }}</h1>
+          <p class="card-text p-2 rounded" style="background-color: #B5FFF2;">
+            {{ task.description }}
+          </p>
+
+          <!-- Achieve Button -->
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <!-- Timestamp on the left or right (small text) -->
+            <small class="text-muted">{{ task.created_at|date:"M d, Y H:i" }}</small>
+
+            <!-- Centered buttons -->
+            <div class="mx-auto">
+              {%if task.is_achieve %}
+                <a href="{% url 'unmark_achieved' task.uid %}" class="btn btn-danger btn-sm me-2">
+                  <i class="fa-solid fa-trophy"></i> Unachieve
+                </a>
+              {%else%}
+                <a href="{% url 'mark_achieved' task.uid %}" class="btn btn-success btn-sm me-2">
+                  <i class="fa-solid fa-trophy"></i> achieve
+                </a>
+              {%endif%}
+
+              <a href="{% url 'update' task.uid %}" type="button" class="btn btn-warning btn-sm me-2">
+                <i class="fas fa-edit"></i> Edit
+              </a>
+              <a href="{% url 'delete' task.uid %}" type="button" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash-alt"></i> Delete
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    {% endfor %}
+    <div class="col-md-4 mb-3">
+      <div class="card text-center border-dashed" style="cursor: pointer;" onclick="location.href='{% url 'add_list' %}'">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center" style="height: 200px;">
+          <i class="fas fa-plus fa-2x text-primary mb-2"></i>
+          <h5 class="text-primary">Add New Task</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
 
 {% endblock %}
+
+
+
