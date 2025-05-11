@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS = [
     'TodoList',
+    'account',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS

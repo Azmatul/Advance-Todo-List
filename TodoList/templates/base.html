@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Todo App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"/>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -16,37 +16,51 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand fw-bold text-success" href="{% url 'home' %}">📋 Todo List</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-success" href="{% url 'home' %}">📋 Todo List</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'add_list' %}">➕ Add Task</a>
-            </li>
-          </ul>
-          <form method="get" class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              name="search_task"
-              value="{{ search_task }}"
-              placeholder="Search Title or Description"
-            />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+  <!-- Left Side -->
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'add_list' %}">➕ Add Task</a>
+    </li>
+  </ul>
+
+  <!-- Center (Search Bar) -->
+  <form method="get" class="d-flex mx-auto" style="width: 400px;">
+    <input
+      class="form-control me-2"
+      type="search"
+      name="search_task"
+      value="{{ search_task }}"
+      placeholder="Search Title or Description"
+    />
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+
+  <!-- Right Side -->
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'login_page' %}">
+        <i class="fa-regular fa-user me-2"></i>Login
+      </a>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
 
     <!-- Page Content -->
     <div class="container py-4">

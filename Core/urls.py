@@ -20,14 +20,22 @@ import uuid
 
 
 from TodoList.views import *
+from account.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path("", tasks_list, name='home'),  # map home to task list view
+    # ************To Do list App*************
+    path("", tasks_list, name='home'),
     path("add_list/", add_list, name='add_list'),
     path("achieve/<uuid:task_id>/", mark_achieved, name="mark_achieved"),
     path("unachieve/<uuid:task_id>/", unmark_achieved, name="unmark_achieved"),
     path("update/<uuid:task_id>/", update, name="update"),
     path("delete/<uuid:task_id>/", delete, name="delete"),
+
+    # ************Account App*************
+    path("login_page", login_page, name = "login_page"),
+    path("registration_page", registration_page, name = "registration_page"),
+
+
 ]

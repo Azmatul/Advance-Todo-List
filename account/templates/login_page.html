@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block start %}
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="p-5 shadow rounded bg-light" style="max-width: 600px; width: 100%;">
+        <h1 class="text-center mb-4 text-success">Login</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="email" class="form-label">📧 Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">🔒 Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="submit">Login</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <span>Don't have an account?</span>
+            <a href="{% url 'registration_page' %}" class="text-decoration-none text-primary fw-semibold">Register</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
