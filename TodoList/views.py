@@ -19,7 +19,7 @@ def add_list(request):
         )
         return redirect("home")
 
-    return  render(request, "add_list.html")
+    return render(request, "add_list.html")
 
 
 def tasks_list(request):
@@ -48,12 +48,12 @@ def tasks_list(request):
     return render(request, 'home.html', context)
 
 
-
 def mark_achieved(request, task_id):
     task = get_object_or_404(Tasks, uid=task_id)
     task.is_achieve = True
     task.save()
     return redirect('home')
+
 
 def unmark_achieved(request, task_id):
     task = get_object_or_404(Tasks, uid=task_id)
@@ -61,8 +61,9 @@ def unmark_achieved(request, task_id):
     task.save()
     return redirect('home')
 
+
 def update(request, task_id):
-    task = get_object_or_404(Tasks, uid = task_id)
+    task = get_object_or_404(Tasks, uid=task_id)
 
     if request.method == "POST":
         task.title = request.POST.get('title')
@@ -71,9 +72,10 @@ def update(request, task_id):
         task.save()
 
         return redirect('home')
-    return render(request, "update.html", {"task": task })
+    return render(request, "update.html", {"task": task})
+
 
 def delete(request, task_id):
-    task = get_object_or_404(Tasks, uid = task_id)
+    task = get_object_or_404(Tasks, uid=task_id)
     task.delete()
     return redirect('home')
