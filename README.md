@@ -1,4 +1,4 @@
-# 📝 Django To-Do List App
+# 📝 Django Advance To-Do List App
 
 A simple, user-authenticated To-Do List web application built with Django. This app allows users to manage their personal tasks efficiently with features like task creation, editing, completion, and deletion — all while ensuring user data is secure and isolated.
 
