@@ -12,7 +12,7 @@ A simple, user-authenticated To-Do List web application built with Django. This 
 - 📅 Auto timestamp for task creation
 - 🎯 Mark tasks as complete/incomplete
 - ⚙️ Session and CSRF protection built-in
-- 💡 Clean and responsive UI using Bootstrap (optional)
+- 💡 Clean and responsive UI using Bootstrap
 
 ---
 
