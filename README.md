@@ -27,3 +27,8 @@ A simple, user-authenticated To-Do List web application built with Django. This 
 - Deploy on hosting
 - switch to Cloud DB (Postgresql)
 - Email Reminder
+
+
+![Screenshot](screenshot/01.png)
+![Screenshot](screenshot/02.png)
+![Screenshot](screenshot/03.png)
