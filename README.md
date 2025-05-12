@@ -24,4 +24,6 @@ A simple, user-authenticated To-Do List web application built with Django. This 
 - **Auth**: Django's built-in authentication system
 
 Future Plan:
+> Deploy on hosting
+> switch to Cloud DB (Postgresql)
 > Email Reminder
