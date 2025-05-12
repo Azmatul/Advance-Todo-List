@@ -29,6 +29,6 @@ A simple, user-authenticated To-Do List web application built with Django. This 
 - Email Reminder
 
 
-![Screenshot](screenshot/01.png)
-![Screenshot](screenshot/02.png)
-![Screenshot](screenshot/03.png)
+![Screenshot](Screenshot/01.png)
+![Screenshot](Screenshot/02.png)
+![Screenshot](Screenshot/03.png)
