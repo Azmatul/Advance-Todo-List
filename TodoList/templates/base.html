@@ -51,11 +51,26 @@
 
                 <!-- login -->
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{% url 'login_page' %}">
-                            <i class="fa-regular fa-user me-2"></i><strong>Login</strong>
-                        </a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-regular fa-user me-2"></i>
+                                <strong>{{ user.first_name }}</strong>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">
+                                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                                <strong>Logout</strong>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login_page' %}">
+                                <i class="fa-regular fa-user me-2"></i><strong>Login</strong>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

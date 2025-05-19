@@ -42,10 +42,13 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'TodoList',
     'account',
+    'schema_viewer',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
 
+
+AUTH_USER_MODEL = 'account.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

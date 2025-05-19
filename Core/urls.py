@@ -1,29 +1,18 @@
-"""
-URL configuration for Core project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.contrib.auth.views import LogoutView
+from django.urls import path, include
 import uuid
 
 
 from TodoList.views import *
+from account import views
 from account.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account/', admin.site.urls),
+    path('schema-viewer/', include('schema_viewer.urls')),
 
     # ************To Do list App*************
     path("", tasks_list, name='home'),
@@ -33,8 +22,11 @@ urlpatterns = [
     path("update/<uuid:task_id>/", update, name="update"),
     path("delete/<uuid:task_id>/", delete, name="delete"),
 
+
+
     # ************Account App*************
     path("login_page", login_page, name = "login_page"),
+    path('logout/', views.login_page, name='logout'),
     path("registration_page", registration_page, name = "registration_page"),
 
 
